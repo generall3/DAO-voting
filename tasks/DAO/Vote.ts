@@ -1,5 +1,5 @@
-import { ExcaliburToken } from "./../../typechain-types/CRGToken";
-import { ExcaliburToken__factory } from "./../../typechain-types/factories/CRGToken__factory";
+import { ExcaliburToken } from "./../../typechain-types/ExcaliburToken";
+import { ExcaliburToken__factory } from "./../../typechain-types/factories/ExcaliburToken__factory";
 import { Console } from "console";
 import { DAO } from "./../../typechain-types/DAO";
 import { DAO__factory } from "./../../typechain-types/factories/DAO__factory";
