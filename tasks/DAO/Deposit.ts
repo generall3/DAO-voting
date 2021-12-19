@@ -20,7 +20,7 @@ task("deposit", "Deposit on DAO")
       getConfig(networkName);
 
     const Token: ExcaliburToken__factory = await hre.ethers.getContractFactory(
-      "CRGToken"
+      "ExcaliburToken"
     );
     const token: CRGToken = await Token.attach(tokenAddress);
     const DAO: DAO__factory = await hre.ethers.getContractFactory("DAO");
