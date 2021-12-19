@@ -1,4 +1,4 @@
-# DAO-voting
+# DAO Voting
 
 # Задание DAO голосование 
 
