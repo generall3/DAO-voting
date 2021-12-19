@@ -8,7 +8,7 @@ import "./IDAO.sol";
 /**
  * @title DAO contract.
  * @author Bogdan Naida
- * @dev Реализация токена ERC20.
+ * @dev Реализация DAO голосования.
  */
 
 contract DAO is IDAO {
