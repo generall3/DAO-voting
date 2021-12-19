@@ -1,47 +1,26 @@
-# Advanced Sample Hardhat Project
-
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
-
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-npx hardhat help
-REPORT_GAS=true npx hardhat test
-npx hardhat coverage
-npx hardhat run scripts/deploy.ts
-TS_NODE_FILES=true npx ts-node scripts/deploy.ts
-npx eslint '**/*.{js,ts}'
-npx eslint '**/*.{js,ts}' --fix
-npx prettier '**/*.{json,sol,md}' --check
-npx prettier '**/*.{json,sol,md}' --write
-npx solhint 'contracts/**/*.sol'
-npx solhint 'contracts/**/*.sol' --fix
-```
-
-# Etherscan verification
-
-To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
-
-In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
-
-```shell
-hardhat run --network ropsten scripts/sample-script.ts
-```
-
-Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
-
-```shell
-npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
-```
-
-# Performance optimizations
-
-For faster runs of your tests and scripts, consider skipping ts-node's type checking by setting the environment variable `TS_NODE_TRANSPILE_ONLY` to `1` in hardhat's environment. For more details see [the documentation](https://hardhat.org/guides/typescript.html#performance-optimizations).
 # DAO-voting
+
+# Задание DAO голосование 
+
+Необходимо реализовать смарт контракт, который будет вызывать байт код функции по средством голосования пользователей.
+
+Для участия в голосовании пользователям необходимо внести токены для голосования.
+Вывести токены с DAO пользователи могут в любой момент, при соблюдении определенных условий.
+Любой пользователь может предложить свое голосование.
+Для участия в голосовании пользователю необходимы токены, один токен один голос. 
+Пользователь может участвовать в голосовании одни теми же токенами, то есть пользователь внес 100 токенов он может участвовать в голосовании №1 всеми 100 токенами и в голосовании №2 тоже всеми 100 токенами.
+
+Финишировать голосование может любой пользователь по прошествии определенного количества времени.
+Пользователь может делегировать свои голоса другому участнику на определенное голосование.
+
+Обязательный функционал:
+1) Депозит токенов
+2) Добавление нового голосования обязательные поля:
+    • description - описание предложения;
+    • recipient - адрес контракта на который будет отправлена транзакция.
+    • byteCode -  сигнатура функции
+3) Голосование за конкретное предложение
+4) Финиширование голосования => при удачном голосование должен произойти вызов сигнатуры функции. Голосование  считается успешным если число проголосовавших было больше minimumQuorum и большинство проголосовало «ЗА». Также голосование можно завершить после того как пройдет 3 дня.
+5) Передача права голоса по конкретному голосованию.
+6) Вывод токенов с DAO возможен после того как все голосования в которых участвовал пользователь закончатся.
+7) Получить информацию о предложении.
